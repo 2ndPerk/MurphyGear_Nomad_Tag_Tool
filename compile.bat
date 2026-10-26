@@ -1,0 +1,1 @@
+pyinstaller --onefile --noconsole tag_gen.py
