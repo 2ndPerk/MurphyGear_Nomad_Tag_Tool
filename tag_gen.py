@@ -11,6 +11,7 @@ from pathlib import Path
         #confirm shows a preview row, submits builds and deploys sheet
 
 #TODO
+    #Clear All button
     #Feature add to list (and remove)
         #functional, add better delete system
     #Pant size list nR ?
@@ -79,7 +80,7 @@ def submit():
 def gen_size_list(selected):
     item_list = []
     #selected = selected_type_category.get()
-    input_box_sizes_secondary.grid_remove()
+    input_box_sizes_secondary.grid_remove()2
     global has_secondary 
     has_secondary = False
     if selected == "Clothing": item_list = sizes_tops
