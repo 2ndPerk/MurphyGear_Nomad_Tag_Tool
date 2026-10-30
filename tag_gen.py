@@ -74,13 +74,23 @@ def submit():
     filename = f"./outputs/{code_value}_{timestamp}.xlsx"
     print("File saved as:", filename)
     wb.save(filename)
-    
+
+def clear_all():
+    input_box_code.delete(0, END)
+    input_box_brand.delete(0, END)
+    input_box_type.delete(0, END)
+    input_box_features.delete(0, END)
+    features.clear()
+    features_listing.config(text=f"Features: {features}")
+    print(features)
+    selected_sizes.clear()
+    size_listing.config(text=f"Selected Sizes: {selected_sizes}")
     
 #fills the size selection box, changes with category selected   
 def gen_size_list(selected):
     item_list = []
     #selected = selected_type_category.get()
-    input_box_sizes_secondary.grid_remove()2
+    input_box_sizes_secondary.grid_remove()
     global has_secondary 
     has_secondary = False
     if selected == "Clothing": item_list = sizes_tops
@@ -221,7 +231,9 @@ size_listing.grid(column = 3, row = 7)
 #submit button, saves values to workbook
 ttk.Button(frm, text="Submit", command=submit).grid(column=1, row=10)
 
+ttk.Button(frm, text="Clear All", command=clear_all).grid(column=3, row=10)
+
 #close button
-ttk.Button(frm, text="Quit", command=root.destroy).grid(column=3, row=10)
+ttk.Button(frm, text="Quit", command=root.destroy).grid(column=5, row=10)
 
 root.mainloop()
